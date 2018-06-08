@@ -42,11 +42,10 @@ namespace Ejercicio5_DFDaCSharp
 
         public static void Menu()
         {
-            int opcion = 0, c = 0, d = 0, j = 0, k = 0;
-            string n = "", n2 = "", n3 = "", n4 = "";
-            bool esNumero = false, esNumero2 = false, c1 = false, c2 = false;
-            int nro1 = 0, nro2 = 0, i = 0, m = 0;
-            long res = 0;
+            int opcion = 0;
+            string n = "";
+            bool esNumero = false;
+         
             while (opcion < 1 | opcion > 3)
             {
                 Console.BackgroundColor = ConsoleColor.DarkBlue;

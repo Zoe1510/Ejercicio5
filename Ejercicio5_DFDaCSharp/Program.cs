@@ -46,7 +46,7 @@ namespace Ejercicio5_DFDaCSharp
             string n = "";
             bool esNumero = false;
          
-            while (opcion < 1 | opcion > 3)
+            while (opcion < 1 | opcion > 5)
             {
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
                 Console.ForegroundColor = ConsoleColor.White;
@@ -63,7 +63,9 @@ namespace Ejercicio5_DFDaCSharp
                 Console.WriteLine("|                                                                         |");
                 Console.WriteLine("|---------------- PRESIONE 3 PARA: MULTIPLICAR POR UN ESCALAR ------------|");               
                 Console.WriteLine("|                                                                         |");
-                Console.WriteLine("|---------------- PRESIONE 4 PARA: SALIR DEL PROGRAMA --------------------|");
+                Console.WriteLine("|---------------- PRESIONE 4 PARA: EVALUAR DOS VECTORES ------------------|");
+                Console.WriteLine("|                                                                         |");
+                Console.WriteLine("|---------------- PRESIONE 5 PARA: SALIR DEL PROGRAMA --------------------|");
                 Console.WriteLine("|                                                                         |");
                 Console.WriteLine("|_________________________________________________________________________|");
                 Console.WriteLine("                                                                           ");
@@ -72,7 +74,8 @@ namespace Ejercicio5_DFDaCSharp
                 Console.ForegroundColor = ConsoleColor.Black;
                 n = Console.ReadLine();
                 esNumero = int.TryParse(n, out opcion);
-                if (esNumero == false)
+            }
+            if (esNumero == false)
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
@@ -107,7 +110,7 @@ namespace Ejercicio5_DFDaCSharp
                         Console.ReadKey();
                         Console.Clear();
                     }
-                    else if (opcion == 4)
+                    else if (opcion == 5)
                     {
                         //salir
                         Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -140,7 +143,7 @@ namespace Ejercicio5_DFDaCSharp
                    
                 }
                
-            }
+           
         }
 
         private static void SumaVectores()

@@ -239,9 +239,14 @@ namespace Ejercicio5_DFDaCSharp
             Console.WriteLine("|----------- LA MULTIPLICACION DE LOS VECTORES ES: -----------------------|");
             for (int i = 0; i < v1.Length; i++)
             {
-                Console.Write("  [" + M[i] + "]");
+                Console.Write(" [" + M[i] + "]");
             }
-
+            int totalEscalar = 0;
+            for(int i=0; i<M.Length; i++)
+            {
+                totalEscalar += M[i];
+            }
+            Console.Write("   = {0}", totalEscalar);
             Console.WriteLine("                                                                           ");
             Console.WriteLine("|_________________________________________________________________________|");
             Console.WriteLine("                                                                           ");

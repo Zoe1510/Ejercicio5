@@ -61,11 +61,9 @@ namespace Ejercicio5_DFDaCSharp
                 Console.WriteLine("|                                                                         |");
                 Console.WriteLine("|---------------- PRESIONE 2 PARA: MULTIPLICAR DOS VECTORES --------------|");
                 Console.WriteLine("|                                                                         |");
-                Console.WriteLine("|---------------- PRESIONE 3 PARA: MULTIPLICAR POR UN ESCALAR ------------|");
+                Console.WriteLine("|---------------- PRESIONE 3 PARA: MULTIPLICAR POR UN ESCALAR ------------|");               
                 Console.WriteLine("|                                                                         |");
-                Console.WriteLine("|---------------- PRESIONE 4 PARA: MAGNITUD ENTRE 2 VECTORES -------------|");
-                Console.WriteLine("|                                                                         |");
-                Console.WriteLine("|---------------- PRESIONE 5 PARA: SALIR DEL PROGRAMA --------------------|");
+                Console.WriteLine("|---------------- PRESIONE 4 PARA: SALIR DEL PROGRAMA --------------------|");
                 Console.WriteLine("|                                                                         |");
                 Console.WriteLine("|_________________________________________________________________________|");
                 Console.WriteLine("                                                                           ");
@@ -109,7 +107,7 @@ namespace Ejercicio5_DFDaCSharp
                         Console.ReadKey();
                         Console.Clear();
                     }
-                    else if (opcion == 5)
+                    else if (opcion == 4)
                     {
                         //salir
                         Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -137,10 +135,6 @@ namespace Ejercicio5_DFDaCSharp
                         {
                             //multiplicar por un escalar
                             multiplicarxEscalar();
-                        }
-                        else if (opcion == 4)
-                        {
-                            //evaluar magnitud entre dos vectores
                         }
                     }
                    
@@ -305,9 +299,5 @@ namespace Ejercicio5_DFDaCSharp
             Console.ReadLine();
         }
 
-        private static void evaluarMagnitud()
-        {
-
-        }
     }
 }

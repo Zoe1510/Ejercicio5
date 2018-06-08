@@ -76,6 +76,25 @@ namespace Ejercicio5_DFDaCSharp
                 esNumero = int.TryParse(n, out opcion);
             }
             if (esNumero == false)
+            {
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(" _________________________________________________________________________ ");
+                Console.WriteLine("|                                                                         |");
+                Console.WriteLine("|---------DATO INVÁLIDO. PRESIONE CUALQUIER TECLA PARA CONTINUAR----------|");
+                Console.WriteLine("|_________________________________________________________________________|");
+                Console.WriteLine("                                                                           ");
+
+                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("                                                                           ");
+                Console.ReadKey();
+                Console.Clear();
+
+            }
+            else
+            {
+                if (opcion < 1 | opcion > 5)
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
@@ -90,58 +109,43 @@ namespace Ejercicio5_DFDaCSharp
                     Console.WriteLine("                                                                           ");
                     Console.ReadKey();
                     Console.Clear();
-
+                }
+                else if (opcion == 5)
+                {
+                    //salir
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(" _________________________________________________________________________ ");
+                    Console.WriteLine("|                                                                         |");
+                    Console.WriteLine("|----------------- PRESIONE CUALQUIER TECLA PARA SALIR -------------------|");
+                    Console.WriteLine("|_________________________________________________________________________|");
+                    Console.WriteLine("                                                                           ");
+                    Console.ReadKey();
                 }
                 else
                 {
-                    if (opcion < 1 | opcion > 5)
+                    if (opcion == 1)
                     {
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine(" _________________________________________________________________________ ");
-                        Console.WriteLine("|                                                                         |");
-                        Console.WriteLine("|---------DATO INVÁLIDO. PRESIONE CUALQUIER TECLA PARA CONTINUAR----------|");
-                        Console.WriteLine("|_________________________________________________________________________|");
-                        Console.WriteLine("                                                                           ");
-
-                        Console.BackgroundColor = ConsoleColor.Gray;
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.WriteLine("                                                                           ");
-                        Console.ReadKey();
-                        Console.Clear();
+                        //sumar dos vectores
+                        SumaVectores();
                     }
-                    else if (opcion == 5)
+                    else if (opcion == 2)
                     {
-                        //salir
-                        Console.BackgroundColor = ConsoleColor.DarkRed;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine(" _________________________________________________________________________ ");
-                        Console.WriteLine("|                                                                         |");
-                        Console.WriteLine("|----------------- PRESIONE CUALQUIER TECLA PARA SALIR -------------------|");
-                        Console.WriteLine("|_________________________________________________________________________|");
-                        Console.WriteLine("                                                                           ");
-                        Console.ReadKey();
+                        //multiplicar dos vectores
+                        multiplicar();
                     }
-                    else
+                    else if (opcion == 3)
                     {
-                        if (opcion == 1)
-                        {
-                            //sumar dos vectores
-                            SumaVectores();
-                        }
-                        else if (opcion == 2)
-                        {
-                            //multiplicar dos vectores
-                            multiplicar();
-                        }
-                        else if (opcion == 3)
-                        {
-                            //multiplicar por un escalar
-                            multiplicarxEscalar();
-                        }
+                        //multiplicar por un escalar
+                        multiplicarxEscalar();
                     }
-                   
+                    else if (opcion == 4)
+                    {
+                        evaluarVectores();
+                    }
                 }
+
+            }
                
            
         }
@@ -307,5 +311,73 @@ namespace Ejercicio5_DFDaCSharp
             Console.ReadLine();
         }
 
+        private static int[] vec, vec2;//Declaramos un vector
+        private static int sumaCuadrados=0, sumaCuadrados2=0;
+        private static double Magnitud1 = 0, Magnitud2 = 0;
+        private static void evaluarVectores()
+        {
+             
+        /*---------ingresar datos--------------*/
+        string linea;
+            Console.BackgroundColor = ConsoleColor.DarkGray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Clear();
+            Console.WriteLine(" _________________________________________________________________________ ");
+            Console.WriteLine("|                                                                         |");
+            Console.Write("|-----------------Ingrese la longitud de los vectores a evaluar: ");
+            linea = Console.ReadLine();
+            Console.WriteLine("|_________________________________________________________________________|");
+            Console.WriteLine("                                                                           ");
+
+            int n = int.Parse(linea);
+            vec = new int[n];
+            vec2 = new int[n];
+
+                Console.WriteLine("|--------------------Ingresando valores al vector A-----------------------|");
+            for (int i = 0; i < vec.Length; i++)
+            {
+                Console.Write("|--------------------Ingrese componente [" + (i + 1) + "]: ");
+                linea = Console.ReadLine();
+                vec[i] = int.Parse(linea);
+            }
+            Console.WriteLine("|--------------------Ingresando valores al vector B-----------------------|");
+            for (int j = 0; j < vec2.Length; j++)
+            {
+                Console.Write("|--------------------Ingrese componente [" + (j + 1) + "]: ");
+                linea = Console.ReadLine();
+               vec2[j] = int.Parse(linea);
+            }
+
+            for (int i = 0; i < vec.Length; i++)
+            {
+                sumaCuadrados = vec[i] * vec[i];
+                sumaCuadrados2 = vec2[i] * vec2[i];
+            }
+            //a cada uno se le sca la raiz y luego se evalua
+            Magnitud1 = Math.Sqrt(sumaCuadrados);
+            Magnitud2 = Math.Sqrt(sumaCuadrados2);
+            String resultado = "";
+            if (Magnitud1 > Magnitud2)
+            {
+                resultado = "El vector 1 es mayor en magnitud al 2: "+Magnitud1+" > "+Magnitud2+"";
+            }else if (Magnitud1 < Magnitud2)
+            {
+                resultado = "El vector 2 es mayor en magnitud al 1: " + Magnitud2 + " > " + Magnitud1 + "";
+            }
+            else if (Magnitud1 == Magnitud2)
+            {
+                resultado = "El vector 1 y el vector 2 son iguales en magnitud: " + Magnitud1 + " = " + Magnitud2 + "";
+            }
+
+            /*---------cálculos hechos--------------*/
+            Console.WriteLine(" _________________________________________________________________________ ");
+            Console.WriteLine("|                                                                         |");
+            Console.WriteLine("|--------------------------- EL RESULTADO ES: ----------------------------|");
+            Console.WriteLine("          {0}", resultado);
+            Console.WriteLine("|_________________________________________________________________________|");
+            Console.WriteLine("                                                                           ");
+            Console.ReadLine();
+        }
+      
     }
 }
